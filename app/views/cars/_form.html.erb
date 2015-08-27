@@ -1,0 +1,30 @@
+ <%= form_for @car do |f| %>
+
+    <div class="form-inputs">
+      
+      <div> 
+        <%= f.label :number_of_car %><br>
+        <%= f.text_field :number %>
+      </div>
+      
+      <div>
+        <%= f.label :model_of_car %><br>
+        <%= f.text_field :model %>
+      </div>
+      
+      <div>
+        <%= f.label :year_of_production %><br>
+        <%= f.text_field :year %>
+      </div>
+      
+      <div>
+        <%= f.label :kind_of_car %><br>
+        <%= f.text_field :car_kind %>
+      </div>
+      
+    </div>
+
+  <div class="form-submit">
+    <%= f.button :submit %>
+  </div>
+<% end %>
