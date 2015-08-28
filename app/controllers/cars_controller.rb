@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  
+
   def index
     @cars = Car.all
   end
@@ -9,8 +9,8 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.create(car_params) 
-    render cars_path
+    @car = Car.create(car_params)
+    redirect_to cars_path
   end
 
 def edit
@@ -20,7 +20,7 @@ end
   def update
     @car = Car.find(params[:id])
     @car.update(car_params)
-    render json: @car.to_json
+    redirect_to cars_path
   end
 
   def destroy
