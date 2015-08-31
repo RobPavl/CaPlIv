@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150831090109) do
+ActiveRecord::Schema.define(version: 20150831140336) do
 
   create_table "cars", force: :cascade do |t|
     t.string   "number",     limit: 255
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(version: 20150831090109) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "car_kind",   limit: 255
+  end
+
+  create_table "event_cars", force: :cascade do |t|
+    t.integer  "car_id",     limit: 4
+    t.integer  "event_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "event_cars", ["car_id"], name: "index_event_cars_on_car_id", using: :btree
+  add_index "event_cars", ["event_id"], name: "index_event_cars_on_event_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "begin_time"
+    t.datetime "end_time"
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "places", force: :cascade do |t|
