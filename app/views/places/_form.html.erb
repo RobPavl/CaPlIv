@@ -1,0 +1,35 @@
+ <%= form_for @place do |f| %>
+
+    <div class="form-inputs">
+      
+      <div> 
+        <%= f.label :enter_address %><br>
+        <%= f.text_field :address %>
+      </div>
+      
+      <div>
+        <%= f.label :enter_city %><br>
+        <%= f.text_field :city %>
+      </div>
+      
+      <div>
+        <%= f.label :enter_latitude %><br>
+        <%= f.text_field :latitude %>
+      </div>
+      
+      <div>
+        <%= f.label :enter_longitude %><br>
+        <%= f.text_field :longitude %>
+      </div>
+      
+      <div>
+        <%= f.label :enter_type_of_place %><br>
+        <%= f.text_field :landmark %>
+      </div>
+
+    </div>
+
+  <div class="form-submit">
+    <%= f.button :submit %>
+  </div>
+<% end %>
