@@ -1,0 +1,32 @@
+<%= form_for @event do |f| %>
+
+  <div>
+    <%= f.label :enter_time_of_begining %><br>
+    <%= f.datetime_field :begin_time %>
+  </div>
+    
+  <div>
+    <%= f.label :enter_time_of_ending %><br>
+    <%= f.datetime_field :end_time %>
+  </div>
+
+  <div>
+    <%= f.label :enter_description %><br>
+    <%= f.text_area :description  %>
+  </div>
+  
+   <div>
+    <%= f.label :select_cars %><br>
+    <%= f.check_box @event.cars.model  %>
+   </div>
+
+  <div>
+    <%= f.label :select_places %><br>
+    <%= f.check_box  %>
+  </div>
+
+  <div class="form-submit">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
