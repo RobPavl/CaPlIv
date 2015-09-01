@@ -17,6 +17,8 @@ Rails.application.routes.draw do
      
      resources :places
 
+     resources :events
+
   # Example resource route with options:
   #   resources :products do
   #     member do
