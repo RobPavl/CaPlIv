@@ -15,11 +15,15 @@
     <td><%= event.end_time %></td>
     <td><%= event.description %></td>
     <td>
-      <%= event.cars.each do |с| %>
-        <%= с.first %>
+      <% event.cars.each do |с| %>
+        <%= с.model %>
       <% end %>
     </td>
-    <td><%= event.places %></td>
+    <td>
+      <% event.places.each do |p| %>
+        <%= p.city %>
+      <% end %>
+    </td>
 
     <td><%= link_to "Edit", edit_event_path(event) %></td>
     <td><%= link_to "Destroy", event, method: :delete, data: { confirm: "Are you sure?" } %></td>

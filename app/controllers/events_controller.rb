@@ -6,6 +6,8 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @cars = Car.all
+    @places = Place.all
   end
 
   def create
@@ -15,6 +17,8 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @cars = Car.all
+    @places = Place.all
   end
 
   def update
@@ -32,7 +36,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:begin_time, :end_time, :description, car_id: [], place_ids: [])
+    params.require(:event).permit(:begin_time, :end_time, :description, car_ids: [], place_ids: [])
   end
 
 end

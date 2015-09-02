@@ -17,11 +17,10 @@
 
    <div>
     <%= f.label :select_cars_from_list %><br>
-    <% Car.all.each do |car| %>
+    <% @cars.each do |car| %>
       <div class="checkbox">
         <label>
-          <input type="checkbox">
-          <!--<%= car.number %>,-->
+          <input name="event[car_ids][]" type="checkbox" value="<%=car.id%>">
           <%=car.model %>
         </label>
       </div>
@@ -30,11 +29,11 @@
 
   <div>
     <%= f.label :select_places_from_list %><br>
-    <% Place.all.each do |place| %>
+    <% @places.all.each do |place| %>
       <div class="checkbox">
         <label>
-          <input type="checkbox">
-          <!--<%= place.city %>,-->
+          <input name="event[place_ids][]" type="checkbox" value="<%=place.id%>">
+          <%= place.city %>,
           <%= place.address %>
         </label>
       </div>
