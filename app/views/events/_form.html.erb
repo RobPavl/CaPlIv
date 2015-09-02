@@ -4,7 +4,7 @@
     <%= f.label :enter_time_of_begining %><br>
     <%= f.datetime_field :begin_time %>
   </div>
-    
+
   <div>
     <%= f.label :enter_time_of_ending %><br>
     <%= f.datetime_field :end_time %>
@@ -14,15 +14,31 @@
     <%= f.label :enter_description %><br>
     <%= f.text_area :description  %>
   </div>
-  
+
    <div>
-    <%= f.label :select_cars %><br>
-    <%= f.check_box @event.cars.model  %>
+    <%= f.label :select_cars_from_list %><br>
+    <% Car.all.each do |car| %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <%= car.number %>,
+          <%=car.model %>
+        </label>
+      </div>
+    <% end %>
    </div>
 
   <div>
-    <%= f.label :select_places %><br>
-    <%= f.check_box  %>
+    <%= f.label :select_places_from_list %><br>
+    <% Place.all.each do |place| %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          <%= place.city %>,
+          <%= place.address %>
+        </label>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-submit">
