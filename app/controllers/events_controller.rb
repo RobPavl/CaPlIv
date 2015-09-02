@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
- 
+
   def index
     @events = Event.all
   end
@@ -32,8 +32,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:begin_time, :end_time, :description)
+    params.require(:event).permit(:begin_time, :end_time, :description, car_id: [], place_ids: [])
   end
-
 
 end

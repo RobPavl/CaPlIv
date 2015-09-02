@@ -1,5 +1,5 @@
 <h1>List of Events</h1>
- 
+
 <table class="table table-striped">
   <tr>
     <th>Event begins at:</th>
@@ -8,13 +8,17 @@
     <th>Cars in event</th>
     <th>Places of event</th>
   </tr>
- 
+
 <% @events.each do |event| %>
   <tr>
     <td><%= event.begin_time %></td>
     <td><%= event.end_time %></td>
     <td><%= event.description %></td>
-    <td><%= event.cars %></td>
+    <td>
+      <%= event.cars.each do |с| %>
+        <%= с.first %>
+      <% end %>
+    </td>
     <td><%= event.places %></td>
 
     <td><%= link_to "Edit", edit_event_path(event) %></td>
@@ -22,7 +26,7 @@
   </tr>
 <% end %>
 </table>
- 
+
 <br>
- 
+
 <%= link_to "Add new event", new_event_path %>
