@@ -12,6 +12,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(event_params)
+    @event.cars = Car.find(params[:car_ids]) if params[:car_ids]
+    @event.places = Place.find(params[:place_ids]) if params[:place_ids]
     redirect_to events_path
   end
 
@@ -23,6 +25,8 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    @event.cars = Car.find(params[:car_ids]) if params[:car_ids]
+    @event.places = Place.find(params[:place_ids]) if params[:place_ids]
     @event.update(event_params)
     redirect_to events_path
   end

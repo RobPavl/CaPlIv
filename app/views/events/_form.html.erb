@@ -17,27 +17,21 @@
 
    <div>
     <%= f.label :select_cars_from_list %><br>
-    <% @cars.each do |car| %>
+   <!-- <% @cars.each do |car| %>
       <div class="checkbox">
         <label>
           <input name="event[car_ids][]" type="checkbox" value="<%=car.id%>">
           <%=car.model %>
         </label>
       </div>
-    <% end %>
+    <% end %>-->
+    <%= select_tag("car_ids[]", options_for_select(Car.all.collect { |car| [car.model, car.id] }, @event.cars.collect { |car| car.id}), {class: 'multiselect-all', multiple: true, size: 6})%>
    </div>
 
   <div>
     <%= f.label :select_places_from_list %><br>
-    <% @places.all.each do |place| %>
-      <div class="checkbox">
-        <label>
-          <input name="event[place_ids][]" type="checkbox" value="<%=place.id%>">
-          <%= place.city %>,
-          <%= place.address %>
-        </label>
-      </div>
-    <% end %>
+    <%= select_tag("place_ids[]", options_for_select(Place.all.collect { |place| [place.address, place.id] }, @event.places.collect { |place| place.id}), {class: 'multiselect-all', multiple: true, size: 6})%>
+  
   </div>
 
   <div class="form-submit">
