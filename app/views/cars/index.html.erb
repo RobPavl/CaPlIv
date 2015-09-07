@@ -1,5 +1,5 @@
 <h1>List of Cars</h1>
- 
+
 <table class="table table-striped">
   <tr>
     <th>Number of the car</th>
@@ -7,7 +7,7 @@
     <th>Year of production</th>
     <th>Kind of the car</th>
   </tr>
- 
+
 <% @cars.each do |car| %>
   <tr>
     <td><%= car.number %></td>
@@ -20,7 +20,9 @@
   </tr>
 <% end %>
 </table>
- 
+
 <br>
- 
+
 <%= link_to "Add new car", new_car_path %>
+<br>
+<%= link_to 'Back to Index', root_path %>
